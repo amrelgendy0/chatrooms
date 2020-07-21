@@ -1,7 +1,7 @@
-import 'package:chatrooms/SendTextField.dart';
+import 'package:chatrooms/Widgets/SendTextField.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import '../messageBubbles.dart';
+import '../Widgets/messageBubbles.dart';
 
 var firestore = Firestore.instance;
 
@@ -16,8 +16,6 @@ class GroupChatScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(name),
-
-
       ),
       body: StreamBuilder(
         stream: firestore.collection(name).orderBy("createdAt").snapshots(),

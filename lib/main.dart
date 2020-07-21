@@ -3,7 +3,8 @@ import 'package:chatrooms/Screens/PrivateMessages.dart';
 import 'package:chatrooms/Screens/login.dart';
 import 'package:chatrooms/Screens/singup.dart';
 import 'package:chatrooms/Services/auth.dart';
-import 'package:chatrooms/addroom.dart';
+import 'package:chatrooms/Widgets/addroom.dart';
+import 'package:chatrooms/Widgets/drawer.dart';
 import 'package:chatrooms/providers/ModelHud.dart';
 import 'package:chatrooms/servies.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -36,36 +37,7 @@ class app extends StatelessWidget {
   Widget build(BuildContext context) {
     String tt = email.substring(0, email.lastIndexOf('@'));
     return Scaffold(
-        drawer: Drawer(
-          child: Column(
-            children: <Widget>[
-              AppBar(
-                title: Text(email),
-                automaticallyImplyLeading: false,
-              ),
-              ListTile(
-                title: Text('Rooms'),
-                onTap: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (BuildContext context) {
-                    return app(email);
-                  }));
-                },
-              ),
-              ListTile(onTap: (){
-
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (BuildContext context) {
-                      return PrivateMessageScreen(email);
-                    }));
-
-
-              },
-                title: Text('PrivateMessage'),
-              ),
-            ],
-          ),
-        ),
+        drawer: drawerr(email),
         appBar: AppBar(
           actions: <Widget>[
             IconButton(

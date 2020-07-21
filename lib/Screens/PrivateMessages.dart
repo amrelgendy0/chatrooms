@@ -1,3 +1,4 @@
+import 'package:chatrooms/Widgets/drawer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,7 @@ class PrivateMessageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: drawerr(loggedemail),
       appBar: AppBar(),
       body: StreamBuilder(
         stream: firestore.collection(loggedemail).snapshots(),

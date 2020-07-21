@@ -8,7 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:provider/provider.dart';
 
-import '../CustomTextField.dart';
+import '../Widgets/CustomTextField.dart';
 
 class LoginScreen extends StatelessWidget {
   Auth _auth = Auth();

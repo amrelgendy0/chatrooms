@@ -57,6 +57,7 @@ String email;
         "text": text,
         "from":user,
         "to":RoomName,
+        "RightsToSee":[user,RoomName],
         "createdAt": DateTime.now(),
         "id": Uuid().v5(text, DateTime.now().toString()),
       });

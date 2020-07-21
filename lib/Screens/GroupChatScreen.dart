@@ -28,9 +28,10 @@ class GroupChatScreen extends StatelessWidget {
             return const Center(child: const CircularProgressIndicator());
           } else {
             List<MessageBubbles> messages = [];
+
             snapshot.data.documents.forEach((element) {
               if (name.contains("@") && email.contains("@")) {
-                if(element.data['from']==email||element.data['to']==email) {
+                if ((element.data['RightsToSee'] as List).contains(email)&&(element.data['RightsToSee'] as List).contains(name)) {
                   messages.add(MessageBubbles(
                       loggedemail: email,
                       TEXT: element.data['text'],
@@ -38,7 +39,6 @@ class GroupChatScreen extends StatelessWidget {
                       time: DateTime.now(),
                       isResev: element.data['from'] == email));
                 }
-
               } else {
                 messages.add(MessageBubbles(
                     loggedemail: email,
@@ -48,24 +48,6 @@ class GroupChatScreen extends StatelessWidget {
                     isResev: element.data['user'] == email));
               }
             });
-
-//            snapshot.data.documents.forEach((element) {
-//              messages.add(MessageBubbles(loggedemail: email,
-//                  TEXT: element.data['text'],
-//                  sender: element.data['user']??element.data['from'],
-//                  time: DateTime.now(),
-//                  isResev: element.data['user'] == email||element.data['from'] == email));
-//            });
-//            if(name.contains("@")&& email.contains("@")){
-//              bool delete = false;
-//              messages.forEach((element) {
-//                if(element.sender==email||)
-//
-//
-//              });
-
-//            }
-
             return SafeArea(
               child: Column(
                 children: [

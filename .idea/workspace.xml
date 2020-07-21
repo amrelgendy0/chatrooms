@@ -25,6 +25,7 @@
     <list default="true" id="8d79cbb9-2924-48f6-a5d0-87a459c2d80c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/singup.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/singup.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Widgets/drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Widgets/drawer.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +79,7 @@
       <workItem from="1595313608358" duration="14240000" />
       <workItem from="1595331621340" duration="12854000" />
       <workItem from="1595344927998" duration="20766000" />
+      <workItem from="1595366562028" duration="106000" />
     </task>
     <servers />
   </component>

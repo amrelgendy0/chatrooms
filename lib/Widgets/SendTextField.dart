@@ -50,23 +50,26 @@ class SendTextField extends StatelessWidget {
   }
 
   void send(String text, String user, String RoomName) {
-    if (RoomName.contains("@") && user.contains("@")) {
-      firestore.collection("private").add({
-        "text": text,
-        "from": user,
-        "to": RoomName,
-        "RightsToSee": [user, RoomName],
-        "createdAt": DateTime.now(),
-        "id": Uuid().v5(text, DateTime.now().toString()),
-      });
+    if (text.trim() == '') {
     } else {
-      firestore.collection(RoomName).add({
-        "text": text,
-        "user": user,
-        "createdAt": DateTime.now(),
-        "id": Uuid().v5(text, DateTime.now().toString()),
-      });
+      if (RoomName.contains("@") && user.contains("@")) {
+        firestore.collection("private").add({
+          "text": text,
+          "from": user,
+          "to": RoomName,
+          "RightsToSee": [user, RoomName],
+          "createdAt": DateTime.now(),
+          "id": Uuid().v5(text, DateTime.now().toString()),
+        });
+      } else {
+        firestore.collection(RoomName).add({
+          "text": text,
+          "user": user,
+          "createdAt": DateTime.now(),
+          "id": Uuid().v5(text, DateTime.now().toString()),
+        });
+      }
+      _controller.clear();
     }
-    _controller.clear();
   }
 }

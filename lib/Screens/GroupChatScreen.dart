@@ -12,6 +12,8 @@ class GroupChatScreen extends StatelessWidget {
   bool allowToWrite;
   @override
   Widget build(BuildContext context) {
+    print(email);
+    print(name);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -25,6 +27,8 @@ class GroupChatScreen extends StatelessWidget {
           } else {
             List<MessageBubbles> messages = [];
             snapshot.data.documents.forEach((element) {
+
+
               messages.add(MessageBubbles(loggedemail: email,
                   TEXT: element.data['text'],
                   sender: element.data['user'],

@@ -1,7 +1,14 @@
+import 'package:chatrooms/Screens/GroupChatScreen.dart';
+import 'package:chatrooms/Services/auth.dart';
 import 'package:flutter/material.dart';
 
 class MessageBubbles extends StatelessWidget {
-  MessageBubbles({this.sender, this.TEXT, this.isResev, this.time}) {
+  MessageBubbles(
+      {this.sender,
+      this.TEXT,
+      this.isResev,
+      this.time,
+      @required this.loggedemail}) {
     if (isResev) {
       Col = Colors.green[800];
       cc = CrossAxisAlignment.start;
@@ -18,7 +25,7 @@ class MessageBubbles extends StatelessWidget {
           bottomRight: Radius.circular(redius));
     }
   }
-
+  String loggedemail;
   double redius = 18;
   var time;
   CrossAxisAlignment cc;
@@ -33,7 +40,18 @@ class MessageBubbles extends StatelessWidget {
     return Column(
       crossAxisAlignment: cc,
       children: <Widget>[
-        Text(sender.toString()),
+        GestureDetector(
+          onTap: () {
+            if (loggedemail == sender) {
+            } else {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (BuildContext context) {
+                return GroupChatScreen(sender, loggedemail, true);
+              }));
+            }
+          },
+          child: Text(sender.toString()),
+        ),
         Material(
           elevation: 10,
           textStyle: TextStyle(fontSize: 25, color: Colors.white),

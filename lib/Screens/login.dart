@@ -56,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                           final authResult =
                               await _auth.signIn(email.trim(), pass.trim());
                           modelhud.changeisLoading(false);
-                          Navigator.push(context, MaterialPageRoute(
+                          Navigator.pushReplacement(context, MaterialPageRoute(
                               builder: (BuildContext context) {
                             return app(authResult.user.email);
                           }));

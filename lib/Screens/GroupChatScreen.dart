@@ -12,8 +12,6 @@ class GroupChatScreen extends StatelessWidget {
   bool allowToWrite;
   @override
   Widget build(BuildContext context) {
-    print(email);
-    print(name);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -36,7 +34,7 @@ class GroupChatScreen extends StatelessWidget {
                       loggedemail: email,
                       TEXT: element.data['text'],
                       sender: element.data['from'],
-                      time: DateTime.now(),
+                      time: element.data['createdAt'],
                       isResev: element.data['from'] == email));
                 }
               } else {
@@ -44,7 +42,7 @@ class GroupChatScreen extends StatelessWidget {
                     loggedemail: email,
                     TEXT: element.data['text'],
                     sender: element.data['user'],
-                    time: DateTime.now(),
+                    time: element.data['createdAt'],
                     isResev: element.data['user'] == email));
               }
             });

@@ -1,7 +1,6 @@
 import 'package:chatrooms/Screens/GroupChatScreen.dart';
-import 'package:chatrooms/Services/auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
 class MessageBubbles extends StatelessWidget {
   MessageBubbles(
       {this.sender,
@@ -27,7 +26,7 @@ class MessageBubbles extends StatelessWidget {
   }
   String loggedemail;
   double redius = 18;
-  var time;
+  Timestamp time;
   CrossAxisAlignment cc;
   bool isResev;
   var sender;
@@ -46,8 +45,6 @@ class MessageBubbles extends StatelessWidget {
             } else {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (BuildContext context) {
-                    print("$loggedemail $sender");
-
                 return GroupChatScreen(sender, loggedemail, true);
               }));
             }
@@ -67,8 +64,7 @@ class MessageBubbles extends StatelessWidget {
           ),
           color: Col,
         ),
-        Text(
-          time.toString(),
+        Text("${time.toDate().hour}:${time.toDate().minute}",
           style: TextStyle(color: Colors.brown),
         )
       ],

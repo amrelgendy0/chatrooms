@@ -13,7 +13,10 @@ class Addroom extends StatelessWidget {
           child: Text("Create"),
           onPressed: () {
             FirebaseDatabase.instance.reference().child("Rooms").update({
-              "${Random().nextInt(99999999)}": {"name": "$name"}
+              "${Random().nextInt(99999999)}": {
+                "name": "$name",
+                "users": {"as": "as"}
+              }
             });
           },
         )

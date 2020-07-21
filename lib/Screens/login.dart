@@ -58,7 +58,7 @@ class LoginScreen extends StatelessWidget {
                           modelhud.changeisLoading(false);
                           Navigator.push(context, MaterialPageRoute(
                               builder: (BuildContext context) {
-                            return app();
+                            return app(authResult.user.email);
                           }));
                         } on PlatformException catch (e) {
                           modelhud.changeisLoading(false);

@@ -1,9 +1,7 @@
-import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dash_chat/dash_chat.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:uuid/uuid.dart';
 
 class Addroom extends StatelessWidget {
   @override
@@ -15,7 +13,7 @@ class Addroom extends StatelessWidget {
           child: Text("Create"),
           onPressed: () {
             FirebaseDatabase.instance.reference().child("Rooms").update({
-              "${ChatUser().uid}": {
+              "${Uuid().v5("$name", name)}": {
                 "name": "$name",
                 "users": {"as": "as"},
               }

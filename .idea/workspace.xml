@@ -20,20 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d79cbb9-2924-48f6-a5d0-87a459c2d80c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/Screens/singup.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Services/auth.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/addroom.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/providers/ModelHud.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/servies.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/CustomTextField.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Screens/login.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Debug.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/singup.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/singup.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/addroom.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/addroom.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +73,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595313597737</updated>
-      <workItem from="1595313608358" duration="8720000" />
+      <workItem from="1595313608358" duration="13968000" />
     </task>
     <servers />
   </component>
@@ -100,6 +92,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="687" y="333" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595323465088">
+      <screen x="0" y="23" width="1920" height="1002" />
+    </state>
+    <state x="687" y="333" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1920.1002@0.23.1920.1002" timestamp="1595323465088" />
     <state x="698" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595321913592">
       <screen x="0" y="23" width="1920" height="1001" />
     </state>

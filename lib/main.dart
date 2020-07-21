@@ -1,3 +1,4 @@
+import 'package:chatrooms/Screens/GroupChatScreen.dart';
 import 'package:chatrooms/Screens/login.dart';
 import 'package:chatrooms/Screens/singup.dart';
 import 'package:chatrooms/Services/auth.dart';
@@ -48,54 +49,68 @@ class app extends StatelessWidget {
         body: StreamBuilder<Event>(
           stream: FirebaseDatabase.instance.reference().child("Rooms").onValue,
           builder: (BuildContext context, AsyncSnapshot<Event> snapshot) {
-            Map<String, Map> data =
-                (snapshot.data.snapshot.value as Map).cast();
-            List<Map> handleddate = [];
-            data.forEach((key, value) {
-              handleddate.add({"id": key, "name": value['name'],"users":value["users"]});
-            });
+            if (!snapshot.hasData) {
+              return const Center(child: const CircularProgressIndicator());
+            } else {
+              Map<String, Map> data =
+                  (snapshot.data.snapshot.value as Map).cast();
+              List<Map> handleddate = [];
+              data.forEach((key, value) {
+                handleddate.add({
+                  "id": key,
+                  "name": value['name'],
+                  "users": value["users"]
+                });
+              });
 
-            return GridView(
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-              children: handleddate.map((e) {
-                bool isIN = e['users']['$tt']==email;
-                return Card(
-                  color: getRandomColor,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Text(e['name']),
-                      FlatButton(
-                        onPressed: () async {
-                        if(!isIN){
-
-                          FirebaseDatabase.instance
-                              .reference()
-                              .child("Rooms")
-                              .child("${e['id']}")
-                              .child("users")
-                              .reference()
-                              .update({"$tt": "$email"});
-
-                        }else{
-                          FirebaseDatabase.instance
-                              .reference()
-                              .child("Rooms")
-                              .child("${e['id']}")
-                              .child("users")
-                              .reference()
-                              .child('$tt').remove();
-
-                        }
-                        },
-                        child: !isIN?Text('Join'):Text("Leave"),
-                      )
-                    ],
-                  ),
-                );
-              }).toList(),
-            );
+              return GridView(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+                children: handleddate.map((e) {
+                  bool isIN = e['users']['$tt'] == email;
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (BuildContext context) {
+                        return GroupChatScreen(e['name'], email, isIN);
+                      }));
+                    },
+                    child: Card(
+                      color: getRandomColor,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Text(e['name']),
+                          FlatButton(
+                            onPressed: () async {
+                              if (!isIN) {
+                                FirebaseDatabase.instance
+                                    .reference()
+                                    .child("Rooms")
+                                    .child("${e['id']}")
+                                    .child("users")
+                                    .reference()
+                                    .update({"$tt": "$email"});
+                              } else {
+                                FirebaseDatabase.instance
+                                    .reference()
+                                    .child("Rooms")
+                                    .child("${e['id']}")
+                                    .child("users")
+                                    .reference()
+                                    .child('$tt')
+                                    .remove();
+                              }
+                            },
+                            child: !isIN ? Text('Join') : Text("Leave"),
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                }).toList(),
+              );
+            }
           },
         ));
   }

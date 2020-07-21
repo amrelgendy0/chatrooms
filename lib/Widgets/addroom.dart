@@ -14,7 +14,7 @@ class Addroom extends StatelessWidget {
         FlatButton(
           child: Text("Create"),
           onPressed: () {
-            if(_globalKey.currentState.validate()){
+            if (_globalKey.currentState.validate()) {
               FirebaseDatabase.instance.reference().child("Rooms").update({
                 "${Uuid().v5("$name", name)}": {
                   "name": "$name",
@@ -24,9 +24,6 @@ class Addroom extends StatelessWidget {
               Firestore.instance.collection("$name").add({});
               Navigator.of(context).pop();
             }
-
-
-
           },
         )
       ],

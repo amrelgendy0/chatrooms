@@ -1,8 +1,5 @@
 import 'package:chatrooms/Screens/GroupChatScreen.dart';
-import 'package:chatrooms/Screens/PrivateMessages.dart';
 import 'package:chatrooms/Screens/login.dart';
-import 'package:chatrooms/Screens/singup.dart';
-import 'package:chatrooms/Services/auth.dart';
 import 'package:chatrooms/Widgets/addroom.dart';
 import 'package:chatrooms/Widgets/drawer.dart';
 import 'package:chatrooms/providers/ModelHud.dart';
@@ -81,10 +78,17 @@ class app extends StatelessWidget {
                     child: Card(
                       color: getRandomColor,
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          Text(e['name']),
-                          FlatButton(
+                          Text(e['name'],style: TextStyle(
+                            fontSize: 25
+                          )),
+                          Text("Joined : ${e['users'].length - 1}",style: TextStyle(
+                            fontSize: 20
+                          ),),
+                          RaisedButton(
+                            color: !isIN ? Colors.blue : Colors.red,
                             onPressed: () async {
                               if (!isIN) {
                                 FirebaseDatabase.instance

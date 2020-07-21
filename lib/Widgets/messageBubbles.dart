@@ -46,6 +46,8 @@ class MessageBubbles extends StatelessWidget {
             } else {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (BuildContext context) {
+                    print("$loggedemail $sender");
+
                 return GroupChatScreen(sender, loggedemail, true);
               }));
             }

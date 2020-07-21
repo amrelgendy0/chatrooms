@@ -20,19 +20,52 @@ class GroupChatScreen extends StatelessWidget {
         title: Text(name),
       ),
       body: StreamBuilder(
-        stream: name.contains("@")&& email.contains("@") ? firestore.collection("private").orderBy("createdAt").snapshots():firestore.collection(name).orderBy("createdAt").snapshots(),
+        stream: name.contains("@") && email.contains("@")
+            ? firestore.collection("private").orderBy("createdAt").snapshots()
+            : firestore.collection(name).orderBy("createdAt").snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
             return const Center(child: const CircularProgressIndicator());
           } else {
             List<MessageBubbles> messages = [];
             snapshot.data.documents.forEach((element) {
-              messages.add(MessageBubbles(loggedemail: email,
-                  TEXT: element.data['text'],
-                  sender: element.data['user']??element.data['from'],
-                  time: DateTime.now(),
-                  isResev: element.data['user'] == email||element.data['from'] == email));
+              if (name.contains("@") && email.contains("@")) {
+                if(element.data['from']==email||element.data['to']==email) {
+                  messages.add(MessageBubbles(
+                      loggedemail: email,
+                      TEXT: element.data['text'],
+                      sender: element.data['from'],
+                      time: DateTime.now(),
+                      isResev: element.data['from'] == email));
+                }
+
+              } else {
+                messages.add(MessageBubbles(
+                    loggedemail: email,
+                    TEXT: element.data['text'],
+                    sender: element.data['user'],
+                    time: DateTime.now(),
+                    isResev: element.data['user'] == email));
+              }
             });
+
+//            snapshot.data.documents.forEach((element) {
+//              messages.add(MessageBubbles(loggedemail: email,
+//                  TEXT: element.data['text'],
+//                  sender: element.data['user']??element.data['from'],
+//                  time: DateTime.now(),
+//                  isResev: element.data['user'] == email||element.data['from'] == email));
+//            });
+//            if(name.contains("@")&& email.contains("@")){
+//              bool delete = false;
+//              messages.forEach((element) {
+//                if(element.sender==email||)
+//
+//
+//              });
+
+//            }
+
             return SafeArea(
               child: Column(
                 children: [

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class drawerr extends StatelessWidget {
   drawerr(this.email);
-String email;
+  String email;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -24,7 +24,6 @@ String email;
             },
           ),
           ListTile(onTap: (){
-
             Navigator.of(context).pushReplacement(
                 MaterialPageRoute(builder: (BuildContext context) {
                   return PrivateMessageScreen(email);

@@ -62,7 +62,6 @@ class SignupScreen extends StatelessWidget {
                   },
                   child: Text("signup"),
                 ) ;},
-
               ),
             ],
           ),

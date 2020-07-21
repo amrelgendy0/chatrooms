@@ -1,15 +1,13 @@
-import 'package:chatrooms/Screens/GroupChatScreen.dart';
+import 'package:chatrooms/Screens/ChatScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
 class SendTextField extends StatelessWidget {
-
-  SendTextField(this.RoomNAme,this.email);
+  SendTextField(this.RoomNAme, this.email);
   TextEditingController _controller = new TextEditingController();
-String RoomNAme;
-String email;
+  String RoomNAme;
+  String email;
   @override
-
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -36,7 +34,7 @@ String email;
           ),
           FlatButton(
             onPressed: () {
-              send(_controller.text, email,RoomNAme);
+              send(_controller.text, email, RoomNAme);
             },
             child: Text(
               'Send',
@@ -51,30 +49,24 @@ String email;
     );
   }
 
-  void send(String text, String user,String RoomName) {
-    if(RoomName.contains("@")&&user.contains("@")){
+  void send(String text, String user, String RoomName) {
+    if (RoomName.contains("@") && user.contains("@")) {
       firestore.collection("private").add({
         "text": text,
-        "from":user,
-        "to":RoomName,
-        "RightsToSee":[user,RoomName],
+        "from": user,
+        "to": RoomName,
+        "RightsToSee": [user, RoomName],
         "createdAt": DateTime.now(),
         "id": Uuid().v5(text, DateTime.now().toString()),
       });
-    }
-    else{
+    } else {
       firestore.collection(RoomName).add({
         "text": text,
         "user": user,
         "createdAt": DateTime.now(),
         "id": Uuid().v5(text, DateTime.now().toString()),
       });
-
     }
-
-
-
     _controller.clear();
   }
-
 }

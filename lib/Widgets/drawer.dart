@@ -29,8 +29,6 @@ String email;
                 MaterialPageRoute(builder: (BuildContext context) {
                   return PrivateMessageScreen(email);
                 }));
-
-
           },
             title: Text('PrivateMessage'),
           ),

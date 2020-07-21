@@ -1,4 +1,3 @@
-import 'package:chatrooms/Screens/singup.dart';
 import 'package:chatrooms/Services/auth.dart';
 import 'package:chatrooms/providers/ModelHud.dart';
 import 'package:flutter/cupertino.dart';

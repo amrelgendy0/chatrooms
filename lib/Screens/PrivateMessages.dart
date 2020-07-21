@@ -1,7 +1,7 @@
 import 'package:chatrooms/Widgets/drawer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'GroupChatScreen.dart';
+import 'ChatScreen.dart';
 
 class PrivateMessageScreen extends StatelessWidget {
   PrivateMessageScreen(this.loggedemail);
@@ -42,7 +42,7 @@ class PrivateMessageScreen extends StatelessWidget {
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(
                               builder: (BuildContext context) {
-                            return GroupChatScreen(
+                            return ChatScreen(
                                 e, loggedemail, true);
                           }));
                         },

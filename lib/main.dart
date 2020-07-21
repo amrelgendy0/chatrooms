@@ -1,18 +1,15 @@
-import 'package:chatrooms/Screens/GroupChatScreen.dart';
+import 'package:chatrooms/Screens/ChatScreen.dart';
 import 'package:chatrooms/Screens/login.dart';
 import 'package:chatrooms/Widgets/addroom.dart';
 import 'package:chatrooms/Widgets/drawer.dart';
 import 'package:chatrooms/providers/ModelHud.dart';
-import 'package:chatrooms/servies.dart';
+import 'package:chatrooms/Services/servies.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 void main() {
   runApp(MyApp());
-
 }
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -27,7 +24,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 class app extends StatelessWidget {
   app(this.email);
   String email;
@@ -73,7 +69,7 @@ class app extends StatelessWidget {
                     onTap: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (BuildContext context) {
-                        return GroupChatScreen(e['name'], email, isIN);
+                        return ChatScreen(e['name'], email, isIN);
                       }));
                     },
                     child: Card(

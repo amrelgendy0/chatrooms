@@ -2,11 +2,9 @@ import 'package:chatrooms/Widgets/SendTextField.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../Widgets/messageBubbles.dart';
-
 var firestore = Firestore.instance;
-
-class GroupChatScreen extends StatelessWidget {
-  GroupChatScreen(this.name, this.email, this.allowToWrite);
+class ChatScreen extends StatelessWidget {
+  ChatScreen(this.name, this.email, this.allowToWrite);
   String name;
   String email;
   bool allowToWrite;
@@ -26,7 +24,6 @@ class GroupChatScreen extends StatelessWidget {
             return const Center(child: const CircularProgressIndicator());
           } else {
             List<MessageBubbles> messages = [];
-
             snapshot.data.documents.forEach((element) {
               if (name.contains("@") && email.contains("@")) {
                 if ((element.data['RightsToSee'] as List).contains(email)&&(element.data['RightsToSee'] as List).contains(name)) {

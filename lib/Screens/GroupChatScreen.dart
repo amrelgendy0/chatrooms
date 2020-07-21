@@ -20,20 +20,18 @@ class GroupChatScreen extends StatelessWidget {
         title: Text(name),
       ),
       body: StreamBuilder(
-        stream: firestore.collection(name).orderBy("createdAt").snapshots(),
+        stream: name.contains("@")&& email.contains("@") ? firestore.collection("private").orderBy("createdAt").snapshots():firestore.collection(name).orderBy("createdAt").snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
             return const Center(child: const CircularProgressIndicator());
           } else {
             List<MessageBubbles> messages = [];
             snapshot.data.documents.forEach((element) {
-
-
               messages.add(MessageBubbles(loggedemail: email,
                   TEXT: element.data['text'],
-                  sender: element.data['user'],
+                  sender: element.data['user']??element.data['from'],
                   time: DateTime.now(),
-                  isResev: element.data['user'] == email));
+                  isResev: element.data['user'] == email||element.data['from'] == email));
             });
             return SafeArea(
               child: Column(

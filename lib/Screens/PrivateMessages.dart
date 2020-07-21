@@ -64,7 +64,7 @@ class PrivateMessageScreen extends StatelessWidget {
                           Navigator.push(context, MaterialPageRoute(
                               builder: (BuildContext context) {
                             return GroupChatScreen(
-                                loggedemail, loggedemail, true);
+                                e, loggedemail, true);
                           }));
                         },
                       ))

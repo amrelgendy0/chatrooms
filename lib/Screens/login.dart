@@ -1,6 +1,5 @@
 import 'package:chatrooms/Screens/singup.dart';
 import 'package:chatrooms/Services/auth.dart';
-import 'package:chatrooms/main.dart';
 import 'package:chatrooms/providers/ModelHud.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +8,7 @@ import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:provider/provider.dart';
 
 import '../Widgets/CustomTextField.dart';
+import 'RoomsScreen.dart';
 
 class LoginScreen extends StatelessWidget {
   Auth _auth = Auth();
